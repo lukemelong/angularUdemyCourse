@@ -1,15 +1,18 @@
-<label>Assignment 2</label>
+<label>Directives</label>
 <input 
     type="text"
     class="form-control"
-    [(ngModel)]="username"
+    [(ngModel)]="serverName"
 >
-<p [innerText]="username"></p>
+<p>{{ serverName }}</p>
 <button 
 class="btn btn-primary" 
-[disabled]="usernameEmpty()"
-(click)="onCreateUser()"
->Add User</button>
-<p>{{ output }}</p>
-<app-server></app-server>
-<app-server></app-server>
+(click)="onButtonClick()"
+>Display Details</button>
+<p *ngIf="tunaVisible">Secret password = 'tuna'</p>
+<app-server *ngFor="let server of servers"></app-server>
+<table>
+    <th>Time Button Was Clicked</th>
+<ng-container *ngFor="let buttonClick of buttonClicks"><tr [ngClass]="{over5: moreThanFive}">{{ buttonClick }}</tr></ng-container>
+
+</table>
